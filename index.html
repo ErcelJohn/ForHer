@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background: linear-gradient(to bottom, #f5eff5, #f0e6f0);
+    color: #4a3a4a;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #e8c8e8, #f0e6f0);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 2px solid #d9a8d9;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #b85b9d;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #8b5a7f;
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 12px 25px;
+    background: #e8c8e8;
+    color: #4a3a4a;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: 2px solid #d9a8d9;
+}
+
+nav a:hover {
+    background: #d9a8d9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(184, 91, 157, 0.2);
+}
+
+nav a.active {
+    background: #b85b9d;
+    color: white;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #b85b9d;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.memory, .letter, .moment, .dream {
+    background: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(184, 91, 157, 0.1);
+    border-left: 5px solid #d9a8d9;
+    transition: all 0.3s ease;
+}
+
+.memory:hover, .letter:hover, .moment:hover, .dream:hover {
+    box-shadow: 0 8px 25px rgba(184, 91, 157, 0.2);
+    transform: translateY(-2px);
+}
+
+.memory h3, .letter h3, .moment h3, .dream h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #b85b9d;
+    margin-bottom: 10px;
+}
+
+.date {
+    color: #8b5a7f;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+.memory-text, .letter-text, .moment-text, .dream-text {
+    color: #4a3a4a;
+    line-height: 1.8;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background: #e8c8e8;
+    color: #4a3a4a;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 2px solid #d9a8d9;
+}
+
+.back-button:hover {
+    background: #d9a8d9;
+    transform: translateX(-4px);
+}
+
+.home-content {
+    text-align: center;
+}
+
+.home-content p {
+    font-size: 1.1rem;
+    color: #4a3a4a;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.collections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.collection-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(184, 91, 157, 0.1);
+    border: 2px solid #f0e6f0;
+}
+
+.collection-card:hover {
+    border-color: #d9a8d9;
+    box-shadow: 0 8px 25px rgba(184, 91, 157, 0.2);
+    transform: translateY(-5px);
+}
+
+.collection-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #b85b9d;
+    margin-bottom: 10px;
+}
+
+.collection-card p {
+    color: #8b5a7f;
+    font-size: 0.95rem;
+}
+
+.emoji {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #8b5a7f;
+    margin-top: 60px;
+    border-top: 2px solid #e8c8e8;
+}
+
+/* Horizontal images in memory */
+.memory-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* wraps on smaller screens */
+    margin: 10px 0;
+}
+
+.memory-img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    object-fit: cover;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 768px) {
+    header {
+        padding: 40px 15px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav a {
+        padding: 14px 25px;
+        font-weight: 600;
+        border-radius: 12px;
+    }
+
+    main {
+        margin: 20px auto;
+        padding: 0 12px;
+    }
+
+    .page-title {
+        font-size: 1.9rem;
+    }
+
+    .memory, .letter, .moment, .dream {
+        padding: 18px;
+        font-size: 0.95rem;
+    }
+
+    .collections {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-card {
+        padding: 22px;
+        min-height: 140px;
+    }
+
+    .emoji {
+        font-size: 2rem;
+    }
+
+    .back-button {
+        font-size: 0.95rem;
+        padding: 8px 16px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 25px 10px;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .page-title {
+        font-size: 1.6rem;
+    }
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <h1>Happy Valentines Day Kath🦋</h1>
+        <p class="subtitle">Hello pretty hope you like this one</p>
+    </header>
+
+    <!-- <nav>
+    <a href="#" onclick="showPage('home')" class="nav-link active" data-page="home">Home</a>
+    <a href="#" onclick="showPage('memories')" class="nav-link" data-page="memories">Memories</a>
+    <a href="#" onclick="showPage('letters')" class="nav-link" data-page="letters">Love Letters</a>
+    <a href="#" onclick="showPage('moments')" class="nav-link" data-page="moments">Special Moments</a>
+    <a href="#" onclick="showPage('dreams')" class="nav-link" data-page="dreams">Our Future</a>
+</nav> -->
+
+    <main>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <div class="home-content">
+            <p>Love is not always about having conversations with the person you care about. For me, true love is admiring someone from afar, even without the certainty that your feelings will be reciprocated, and without needing to constantly remind her how beautiful she is or how much she deserves to be loved beyond what she expects.</p>
+
+            <div class="collections">
+                <div class="collection-card" onclick="showPage('memories')">
+                    <div class="emoji">💭</div>
+                    <h3>Memories</h3>
+                    <p>The precious moments</p>
+                </div>
+                <div class="collection-card" onclick="showPage('letters')">
+                    <div class="emoji">💌</div>
+                    <h3>Love Letters</h3>
+                    <p>Words from my heart to yours</p>
+                </div>
+                <div class="collection-card" onclick="showPage('moments')">
+                    <div class="emoji">✨</div>
+                    <h3>Special Moments</h3>
+                    <p>Little things that mean everything</p>
+                </div>
+                <div class="collection-card" onclick="showPage('dreams')">
+                    <div class="emoji">🌟</div>
+                    <h3>Just a message</h3>
+                    <p>Simple message just for you</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORIES PAGE -->
+    <div id="memories" class="page">
+        <a href="#" onclick="showPage('home')" class="back-button">← Back</a>
+        <h2 class="page-title">Memories</h2>
+        
+        <div class="memory">
+            <h3>First Meeting</h3>
+            <div class="memory-images">
+                <img src="kt3.jpg" class="memory-img">
+                <img src="kt1.jpg" class="memory-img">
+                <img src="kt4.jpg" class="memory-img">
+                <img src="kt2.jpg" class="memory-img">
+            </div>
+            <p class="date">In the coffee shop</p>
+            <p class="memory-text">That special evening, I asked you to have some coffee and made a promise not to give up on you. I will never forget that day—you made me realize what love truly is and showed me that I deserve to be loved.</p>
+        </div>
+
+        <div class="memory">
+            <h3>That coffee evening</h3>
+            <p class="date">Cafe Beni</p>
+            <p class="memory-text">Even in the short time we had together, I was so happy simply being with you—talking deeply and sharing moments. That night, you gave me a kiss I never imagined, and in that moment, you made me feel truly alive.</p>
+        </div>
+
+        <div class="memory">
+            <h3>That samgy night after shift</h3>
+            <p class="date">Samgy Night</p>
+            <p class="memory-text">That night, I asked you to have samgy, sabi mo craving ikaw haha. That’s why I asked for it at hinintay mo ako maka-out. May binili ka muna, kaya hinintay mo ako.</p>
+        </div>
+
+        <div class="memory">
+            <h3>That late night watching cine</h3>
+            <p class="date">That cine night</p>
+            <p class="memory-text">I will never forget that night we went to the cinema together. While waiting, we played in the arcade and sang at the KTV. I cherished every single moment with you and secretly wished the night would never end.</p>
+        </div>
+
+        <div class="memory">
+            <h3>Late Night Conversations</h3>
+            <p class="date">Every night hearing your voice</p>
+            <p class="memory-text">Our late-night talks are some of my most treasured moments. Even in silence, or when we laugh about nothing at all, being with you makes everything feel right. I cherish every second, every word, every shared smile, and I wish those nights would never end.</p>
+        </div>
+    </div>
+
+    <!-- LOVE LETTERS PAGE -->
+    <div id="letters" class="page">
+        <a href="#" onclick="showPage('home')" class="back-button">← Back</a>
+        <h2 class="page-title">Love Letters</h2>
+        
+        <div class="letter">
+            <h3>To the Girl Who Stole My Heart</h3>
+            <p class="date">Just you</p>
+            <p class="letter-text">Every single day with you is a gift I never knew I needed. You fill my world with light, laughter, and love in ways I can't even describe. Thank you for being exactly who you are.</p>
+        </div>
+
+        <div class="letter">
+            <h3>On Your Beauty</h3>
+            <p class="date">How beautiful you are</p>
+            <p class="letter-text">It's not just your physical beauty that takes my breath away though it does. It's the beauty in your kindness, your strength, your vulnerability, and the way you love so fearlessly. You're the most beautiful person I know, inside and out.</p>
+        </div>
+
+        <div class="letter">
+            <h3>Thank You</h3>
+            <p class="date">A Letter</p>
+            <p class="letter-text">Thank you for believing in me when I didn't believe in myself. Thank you for every hug, every word of encouragement, every moment you cheer me up when things got hard. You make me want to be a better person every single day.</p>
+        </div>
+    </div>
+
+    <!-- SPECIAL MOMENTS PAGE -->
+    <div id="moments" class="page">
+        <a href="#" onclick="showPage('home')" class="back-button">← Back</a>
+        <h2 class="page-title">Special Moments</h2>
+        
+        <div class="moment">
+            <h3>☕ Coffee Date Nights</h3> 
+            <p class="moment-text">That coffee night i realized what is the feeling of being happy cause for the very long time i cant feel it anymore, when im with you i can say that im very very happy with your presence everyday im praying how can i get your presence back😞</p>
+        </div>
+
+        <div class="moment">
+            <h3>🎬 Movie Night</h3>
+            <p class="moment-text">That cine night was one of the best things I’ve ever experienced in my life. I can’t even explain how happy I was in that moment. I just wanted to stop the clock for a while and have more time with you.</p>
+        </div>
+
+        <div class="moment">
+            <h3>🌅 Late night talks</h3>
+            <p class="moment-text">That late night talks with you, sobrang fulfilled kapag kausap ka palagi every night or every after shift, napapawi lahat ng pagod e, just hearing your voice every time wala na buo nanaman araw ko.</p>
+        </div>
+
+        <div class="moment">
+            <h3>🎵 Singing a songs for you</h3>
+            <p class="moment-text">I love singing for you it’s one of the best feelings I’ve ever had. If singing is what keeps you by my side for a long time, then I’ll never get tired of doing it for you.</p>
+        </div>
+
+        <div class="moment">
+            <h3>📞 Night Calls</h3>
+            <p class="moment-text">There’s something special about our late night calls. In those quiet hours, it feels like it’s just you and me. If time could pause during those moments, I’d let the night last forever just to keep talking to you.</p>
+        </div>
+
+        <div class="moment">
+            <h3>🤗 Just Because Hugs</h3>
+            <p class="moment-text">The warm embrace you give me without any reason at all. It's in these simple moments that I feel how much you truly care.</p>
+        </div>
+
+        <div class="moment">
+            <h3>💝 Your Smile</h3>
+            <p class="moment-text">If you're wondering why your smile is my favorite moments, kase wala naman din akong hiniling kundi makita lagi yung smile mo, I miss your smile😞</p>
+        </div>
+    </div>
+
+    <!-- FUTURE DREAMS PAGE -->
+    <div id="dreams" class="page">
+        <a href="#" onclick="showPage('home')" class="back-button">← Back</a>
+        <h2 class="page-title">To the person i miss the most</h2>
+        
+        <div class="dream">
+            <h3>Just missing you</h3>
+            <p class="dream-text">
+        <div class="dream">
+            <h3>Missing you</h3>
+            <p class="dream-text">What we had was simple, but it meant a lot to me. I was serious when I was courting you. I wasn’t just passing time—I really wanted to build something real with you.</p>
+        </div>
+
+        <div class="dream">
+            <h3>Missing you</h3>
+            <p class="dream-text">I think about the small things the most. Our conversations, the way we’d talk about our day, the quiet moments that didn’t need anything special. Those are the things I miss</p>
+        </div>
+
+        <div class="dream">
+            <h3>Missing you</h3>
+            <p class="dream-text">I miss you more than I expected to. It’s strange how someone can become such a big part of your day, and then suddenly they’re not there anymore. I still catch myself wanting to tell you about random things, like nothing changed.
+</p>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #e8c8e8, #f0e6f0); padding: 40px; border-radius: 8px; margin-top: 40px; text-align: center;">
+            <p style="font-size: 1.2rem; color: #b85b9d; margin-bottom: 10px; font-family: 'Playfair Display', serif;">A Promise to You</p>
+            <p style="color: #4a3a4a; font-style: italic; line-height: 1.8;">As I promised, ‘Hindi ako susuko sa’yo.’ I will never get tired of showing you how blessed I am to have found someone like you. Maybe today isn’t the right time, but I’m praying and will keep praying that one day, everything will fall into place. I hope you’re okay. Every day, I will offer you the love you deserve for as long as I can.</p>
+        </div>
+    </div>
+</main>
+
+    <footer>
+        <p>Made with love for the one I cherish most ❤️</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+
+    // Show the selected page
+    document.getElementById(pageId).classList.add('active');
+
+    // Update nav active state
+    document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+    const activeLink = document.querySelector(`.nav-link[data-page="${pageId}"]`);
+    if(activeLink) activeLink.classList.add('active');
+
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
+    </script>
+</body>
+</html>

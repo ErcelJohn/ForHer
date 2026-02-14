@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Love Story</title>
+    <title>Valentines day</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -307,10 +307,117 @@ footer {
         font-size: 1.6rem;
     }
 }
+
+/* Valentine Heart Overlay */
+.heart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 9999;
+    cursor: pointer;
+    animation: fadeInHeart 0.6s ease;
+}
+
+.heart-overlay.vanish {
+    animation: vanishHeart 0.8s ease forwards;
+}
+
+@keyframes fadeInHeart {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes vanishHeart {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0) rotate(360deg);
+    }
+}
+
+.heart-container {
+    text-align: center;
+}
+
+.big-heart {
+    font-size: 150px;
+    animation: heartBeat 1.2s infinite;
+    margin-bottom: 30px;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+}
+
+.valentine-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #b85b9d;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.valentine-subtext {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    color: #8b5a7f;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .big-heart {
+        font-size: 100px;
+        margin-bottom: 20px;
+    }
+
+    .valentine-text {
+        font-size: 1.8rem;
+    }
+
+    .valentine-subtext {
+        font-size: 1rem;
+    }
+}
 </style>
 
 </head>
 <body>
+    <!-- Valentine Heart Overlay -->
+    <div id="heartOverlay" class="heart-overlay">
+        <div class="heart-container">
+            <div class="big-heart">❤️</div>
+            <p class="valentine-text">Happy Valentine's Day</p>
+            <p class="valentine-subtext">Touch my heart to see what’s inside.</p>
+        </div>
+    </div>
+
     <header>
         <h1>Happy Valentines Day Kath🦋</h1>
         <p class="subtitle">Hello pretty hope you like this one</p>
@@ -369,19 +476,19 @@ footer {
                 <img src="kt2.jpg" class="memory-img">
             </div>
             <p class="date">In the coffee shop</p>
-            <p class="memory-text">That special evening, I asked you to have some coffee and made a promise not to give up on you. I will never forget that day—you made me realize what love truly is and showed me that I deserve to be loved.</p>
+            <p class="memory-text">That special evening, I asked you to have some coffee and made a promise not to give up on you. I will never forget that day you made me realize what love truly is and showed me that I deserve to be loved.</p>
         </div>
 
         <div class="memory">
             <h3>That coffee evening</h3>
             <p class="date">Cafe Beni</p>
-            <p class="memory-text">Even in the short time we had together, I was so happy simply being with you—talking deeply and sharing moments. That night, you gave me a kiss I never imagined, and in that moment, you made me feel truly alive.</p>
+            <p class="memory-text">Even in the short time we had together, I was so happy simply being with you talking deeply and sharing moments. That night, you gave me a kiss I never imagined, and in that moment, you made me feel truly alive.</p>
         </div>
 
         <div class="memory">
             <h3>That samgy night after shift</h3>
             <p class="date">Samgy Night</p>
-            <p class="memory-text">That night, I asked you to have samgy, sabi mo craving ikaw haha. That’s why I asked for it at hinintay mo ako maka-out. May binili ka muna, kaya hinintay mo ako.</p>
+            <p class="memory-text">That night, I asked you to have samgy, sabi mo craving ikaw haha. That’s why I asked for it at hinintay mo ako maka out. May binili ka muna, kaya hinintay mo ako.</p>
         </div>
 
         <div class="memory">
@@ -393,7 +500,7 @@ footer {
         <div class="memory">
             <h3>Late Night Conversations</h3>
             <p class="date">Every night hearing your voice</p>
-            <p class="memory-text">Our late-night talks are some of my most treasured moments. Even in silence, or when we laugh about nothing at all, being with you makes everything feel right. I cherish every second, every word, every shared smile, and I wish those nights would never end.</p>
+            <p class="memory-text">Our late night talks are some of my most treasured moments. Even in silence, or when we laugh about nothing at all, being with you makes everything feel right. I cherish every second, every word, every shared smile, and I wish those nights would never end.</p>
         </div>
     </div>
 
@@ -472,7 +579,7 @@ footer {
             <p class="dream-text">
         <div class="dream">
             <h3>Missing you</h3>
-            <p class="dream-text">What we had was simple, but it meant a lot to me. I was serious when I was courting you. I wasn’t just passing time—I really wanted to build something real with you.</p>
+            <p class="dream-text">What we had was simple, but it meant a lot to me. I was serious when I was courting you. I wasn’t just passing time I really wanted to build something real with you.</p>
         </div>
 
         <div class="dream">
@@ -498,6 +605,21 @@ footer {
     </footer>
 
     <script>
+        // Valentine Heart Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const heartOverlay = document.getElementById('heartOverlay');
+            
+            heartOverlay.addEventListener('click', function() {
+                heartOverlay.classList.add('vanish');
+                
+                // Redirect to home after animation completes
+                setTimeout(function() {
+                    heartOverlay.style.display = 'none';
+                    showPage('home');
+                }, 800);
+            });
+        });
+
         function showPage(pageId) {
     // Hide all pages
     document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
